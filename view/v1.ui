@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>717</width>
+    <height>534</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="btn_cargar">
+        <property name="text">
+         <string>CARGAR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_agregar">
+        <property name="text">
+         <string>AGREGAR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QTableWidget" name="tbl_materias">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>GDO.</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>EST</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>NOMBRE</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>MATERIA</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TIPO</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>MODALIDAD</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>GPO.</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>LUNES</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>MARTES</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>MIERCOLES</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>JUEVES</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>VIERNES</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>SABADO</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
