@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="ImgFiIngenieria">
+    <file>imagenes/sort_down.png</file>
+    <file>imagenes/sort_up.png</file>
+    <file>imagenes/PngItem_1429696.png</file>
+    <file>imagenes/checkmark.png</file>
     <file>imagenes/fingenieria.png</file>
     <file>imagenes/fingenieria.png</file>
   </qresource>

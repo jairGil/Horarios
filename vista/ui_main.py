@@ -1,15 +1,19 @@
+import time
+
 from PySide6 import QtCore, QtWidgets, QtGui
 
 from controlador.archivo import Archivo
 from principal import UiMainWindow
+from vista.app import FrmMain
 
 
-class App:
+class FrmStart:
     __controller: Archivo
 
     def __init__(self, window: QtWidgets.QMainWindow):
         # Create controller instance
         self.__controller = Archivo()
+        self.__window = window
 
         # Widgets declaration
         self.centralwidget = QtWidgets.QWidget(window)
@@ -46,6 +50,8 @@ class App:
                              "	    border-radius: 20px;\n"
                              "	    font: 18pt \"Algerian\";\n"
                              "	    color: white;\n"
+                             "      width: 200;\n"
+                             "      height: 40;\n" 
                              "}\n"
                              "QPushButton:hover{ background-color: rgb(167, 150, 77); }\n"
                              "QPushButton:pressed{ background-color: rgb(58, 80, 56); }")
@@ -71,11 +77,6 @@ class App:
         # Set minimum size of label, frame and buttons
         self.lbl_fiuaemex.setMinimumSize(QtCore.QSize(0, 200))
         self.frm_buttons.setMinimumSize(QtCore.QSize(400, 300))
-        self.btn_ici.setMinimumSize(QtCore.QSize(200, 40))
-        self.btn_ico.setMinimumSize(QtCore.QSize(200, 40))
-        self.btn_iel.setMinimumSize(QtCore.QSize(200, 40))
-        self.btn_ime.setMinimumSize(QtCore.QSize(200, 40))
-        self.btn_ises.setMinimumSize(QtCore.QSize(200, 40))
         
         # Add Button's actions
         self.btn_ico.clicked.connect(self.actions)
@@ -98,12 +99,19 @@ class App:
         self.lbl_fiuaemex.setText("")
 
     def actions(self):
+        """
         self.__controller.abrir("../controlador/plantillas/PLANTILLA_ICO_2021B.txt")
         win2 = QtWidgets.QMainWindow(parent=self.centralwidget)
         second_view = UiMainWindow(self.__controller)
         second_view.setup_ui(win2)
         win2.show()
         MainWindow.hide()
+        """
+        form = QtWidgets.QWidget()
+        ui2 = FrmMain(form)
+        ui2.setup_ui(form)
+        self.__window.setCentralWidget(form)
+        self.__window.showMaximized()
 
 
 if __name__ == "__main__":
@@ -111,6 +119,6 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = App(MainWindow)
+    ui = FrmStart(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())

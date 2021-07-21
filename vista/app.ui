@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>701</width>
+    <height>488</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#Form{ background-color: rgb(255, 255, 255); }
+QFrame{ background-color: rgb(255, 255, 255); }
+QFrame#frm_buttons{ background-color: rgb(49, 68, 47); }
+QPushButton{
+	background-color: rgb(49, 68, 47);
+	border: none;
+	font: 87 11pt &quot;Arial Black&quot;;
+    color: white;
+	height: 40px;
+    }
+QPushButton:hover, QPushButton:checked{ background-color: rgb(167, 150, 77); }
+QCheckBox::indicator{
+	border: 2px solid;
+	border-color: rgb(49, 68, 47);
+	width: 15px;
+	height: 15px;
+	border-radius: 6px;
+}
+QCheckBox::indicator:checked{ image: url(:/ImgFiIngenieria/imagenes/checkmark.png); }
+QCheckBox::indicator:hover{ background-color: rgb(49, 68, 47); }
+QScrollBar:vertical{
+	border: none;
+    width: 15px;
+    margin: 15px 0;
+	background-color: rgb(177, 177, 177);
+ }
+QScrollBar::handle:vertical{
+	background-color: rgb(167, 150, 77);
+	min-height: 30px;
+	border-radius: 7px;
+ }
+QScrollBar::handle:vertical:pressed, 
+QScrollBar::add-line:vertical:pressed, 
+QScrollBar::sub-line:vertical:pressed{ background-color: rgb(29, 40, 28); }
+QScrollBar::sub-line:vertical{
+	border: none;
+	height: 15px;
+	background-color: rgb(167, 150, 77);
+	border-top-right-radius: 7px;
+	border-top-left-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	image: url(:/ImgFiIngenieria/imagenes/sort_up.png);
+}
+QScrollBar::add-line:vertical{
+	border: none;
+	height: 15px;
+	background-color: rgb(167, 150, 77);
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	image: url(:/ImgFiIngenieria/imagenes/sort_down.png);
+}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical{ 	background: none; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{ background: none; }</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frm_buttons">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btn_ua">
+        <property name="text">
+         <string>UA</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_template">
+        <property name="text">
+         <string>Plantilla</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_sched">
+        <property name="text">
+         <string>Horarios</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_info">
+        <property name="text">
+         <string>Acerca de</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_exit">
+        <property name="text">
+         <string>Salir</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>imagenes/uaemex.png</normaloff>imagenes/uaemex.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stack_pages">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	border-radius: 10px;
+	height: 30;
+	font: 10pt;
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="page_ua">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="spacing">
+        <number>9</number>
+       </property>
+       <item row="0" column="0" colspan="2">
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>483</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>371</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="btn_save">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Guardar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_template">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTableWidget" name="tableWidget"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_schedule"/>
+     <widget class="QWidget" name="page_info">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QLabel" name="lbl_info">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>
