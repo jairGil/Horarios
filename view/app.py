@@ -1,17 +1,20 @@
 from PySide6 import QtCore, QtWidgets
 
 from controller.datafile import DataFile
+from controller.placer import Placer
 from view import stylesheets
 
 
 class FrmApp(object):
     __window: QtWidgets.QMainWindow
     __controller: DataFile
+    __placer: Placer
 
     def __init__(self, form: QtWidgets.QWidget, window: QtWidgets.QMainWindow, controller: DataFile):
         # Init controller
         self.__window = window
         self.__controller = controller
+        self.__placer = Placer(self.__controller)
 
         self.main_layout_h = QtWidgets.QHBoxLayout(form)  # Principal layout
 
@@ -31,6 +34,7 @@ class FrmApp(object):
         # First Page
         self.page_ua = QtWidgets.QWidget()
         self.grid_ua = QtWidgets.QGridLayout(self.page_ua)
+        self.lbl_title_page_one = QtWidgets.QLabel(self.page_ua)
         self.scrollArea = QtWidgets.QScrollArea(self.page_ua)
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scroll_area_layout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -118,11 +122,13 @@ class FrmApp(object):
         # Add widgets to Page One
         self.scroll_area_layout.addWidget(self.frm_ua)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.grid_ua.addWidget(self.scrollArea, 0, 0, 1, 2)
-        self.grid_ua.addItem(self.spacer_item_1, 1, 0, 1, 1)
+        self.grid_ua.addWidget(self.lbl_title_page_one, 0, 0, 1, 2)
+        self.grid_ua.addWidget(self.scrollArea, 1, 0, 1, 2)
+        self.grid_ua.addItem(self.spacer_item_1, 2, 0, 1, 1)
         self.btn_save.setMinimumSize(QtCore.QSize(100, 0))
-        self.grid_ua.addWidget(self.btn_save, 1, 1, 1, 1)
+        self.grid_ua.addWidget(self.btn_save, 2, 1, 1, 1)
         self.stack_pages.addWidget(self.page_ua)
+        self.__placer.place_checkboxes(self.checkboxes_uas, self.ua_layout)
 
         # ----------------------Page Two
         self.stack_pages.addWidget(self.page_template)
@@ -142,27 +148,16 @@ class FrmApp(object):
         self.retranslate_ui(form)
         self.stack_pages.setCurrentIndex(4)
 
-        self.place_checboxes()
-
     def retranslate_ui(self, form):
         form.setWindowTitle("Creacion de Horarios FIUAEMex")
         self.btn_ua.setText("UA")
+        self.lbl_title_page_one.setText("Selecciona las materias que ya cursaste")
         self.btn_template.setText("Plantilla")
         self.btn_sched.setText("Horarios")
         self.btn_info.setText("Acerca de")
         self.btn_exit.setText("Salir")
         self.btn_save.setText("Guardar")
         self.lbl_info.setText("Panel de informacion\n V1")
-
-    def place_checboxes(self):
-        uas = self.__controller.get_uas()
-        uas = list(uas)
-        uas.sort()
-
-        for i in range(len(uas)):
-            self.checkboxes_uas.append(QtWidgets.QCheckBox(self.frm_ua))
-            self.checkboxes_uas[i].setText(uas[i])
-            self.ua_layout.addWidget(self.checkboxes_uas[i])
 
     def change_pages(self):
         if self.btn_ua.isChecked():
@@ -173,14 +168,3 @@ class FrmApp(object):
             self.stack_pages.setCurrentIndex(2)
         if self.btn_info.isChecked():
             self.stack_pages.setCurrentIndex(3)
-
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = FrmApp(Form)
-    ui.setup_ui(Form)
-    Form.show()
-    sys.exit(app.exec())
